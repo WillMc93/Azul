@@ -60,7 +60,7 @@ class Wall:
 		score = 0
 		_row, _col = make_move(row, col)
 		while bounds(_row) and bounds(_col):
-			if self.tiled[_row][_col] != '':
+			if self.tiled[_row][_col] != Tile():
 				score += 1
 			else:
 				break
