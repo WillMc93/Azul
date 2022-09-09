@@ -6,7 +6,7 @@ class Tile:
 	# immutable string class with checks on the value of the string
 	VALID_COLOURS = ('blue', 'yellow', 'red', 'black', 'white')
 	__TILE_REPS = {'blue': '🟦', 'yellow': '🟨', 'red': '🟥', 'black': '⬛',
-						'white': '⬜', '-1': '⛔', '': '❔'}
+					'white': '⬜', 'first': '🏆', '': '❔'}
 	colour: str = ''		
 
 	def __init__(self, colour=''):
