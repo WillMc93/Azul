@@ -11,11 +11,12 @@ class FloorLine:
 		self.line = []
 		self.reset_line()
 
-	def add(self, tile: Tile):
+	def add(self, tiles):
 		# Add tile to the floor line
 		if len(self.line) >= 7:
 			raise Exception("Uhhh, the floor line exceeded the maximum.")
-		self.line.append(tile)
+		for tile in tiles:
+			self.line.append(tile)
 
 	def score(self):
 		# Calculate the score for this floor line
