@@ -21,26 +21,29 @@ class PatternLine:
 
 		# Pull the tiles of the correct type
 		keep = []
-		floor = []
+		runoff = []
 		for tile in tiles:
 			if tile.colour == self.colour:
 				keep.append(tile)
 			else:
-				floor.append(tile)
+				runoff.append(tile)
 
 		# Add the keepers to the pattern but discard extras
+		floor = []
 		keep_len = self.max_size - len(self.line)
 		self.line += keep[:keep_len]
 		if len(keep) > self.max_size - len(self.line):
-			floor += keep[keep_len:]
+			floor = keep[keep_len:]
 
-		return floor
+		return runoff, floor
 
-	def clear():
+	def full(self):
+		return len(self.line) == self.max_size
+
+	def clear(self):
 		# Return the tiles from this pattern line and make it empty
 		if self.size != self.max_size:
 			raise("Programming Error: Trying to clear an incomplete pattern line.")
-
 		tiles = self.line
 		self.line = []
 		self.colour = None
