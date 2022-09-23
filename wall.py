@@ -17,6 +17,7 @@ class Wall:
 	def __init__(self):
 		self.tiled = np.array([copy.deepcopy(EMPTY_ROW) for _ in range(5)])
 
+
 	def add(self, tile, row):
 		# Function for adding a tile to self.tiled
 		if tile in self.tiled[row]:

@@ -16,6 +16,7 @@ class Game:
 		self.factories = [Factory() for _ in range(FACTORIES[players])]
 		self.floor = Floor()
 
+
 	def fill_factories(self):
 		for factory in self.factories:
 			pieces = []
@@ -23,6 +24,7 @@ class Game:
 				idx = randint(len(self.bag))
 				pieces.append(self.bag.pop(idx))
 			factory.add(pieces)
+
 
 	def game_status(self, player):
 		# Make a numpy array of the current status of the game

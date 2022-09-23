@@ -6,6 +6,7 @@ class PatternLine:
 		self.colour = None
 		self.line = []
 
+
 	def add(self, tiles, colour):
 		# Add tiles to this pattern line and return the tiles that couldn't or shouldn't be added.
 		if len(self.line) == self.max_size:
@@ -37,8 +38,10 @@ class PatternLine:
 
 		return runoff, floor
 
+
 	def full(self):
 		return len(self.line) == self.max_size
+
 
 	def clear(self):
 		# Return the tiles from this pattern line and make it empty
