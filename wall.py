@@ -23,13 +23,11 @@ class Wall:
 			raise Exception("Programming Error: Filling a row with a used tile")
 		
 		col = np.where(Wall.PATTERN[row] == tile)
-
 		if len(col) == 1 and len(col[0]) == 1:
 			col = col[0][0]
 		else:
 			raise Exception("Programming Error: np.where returned more than one index.")
-
-		self.tiled[row, col] = tile
+		self.tiled[row][col] = tile
 		return self.add_score(row, col)
 
 
