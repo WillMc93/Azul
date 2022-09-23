@@ -41,8 +41,8 @@ class PatternLine:
 		if self.size != self.max_size:
 			raise("Programming Error: Trying to clear an incomplete pattern line.")
 
-		out = self.line
+		tiles = self.line
 		self.line = []
 		self.colour = None
-		return out
+		return tiles
 
