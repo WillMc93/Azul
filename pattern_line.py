@@ -20,23 +20,13 @@ class PatternLine:
 		if self.colour == None:
 			self.colour = colour
 
-		# Pull the tiles of the correct type
-		keep = []
-		runoff = []
-		for tile in tiles:
-			if tile.colour == self.colour:
-				keep.append(tile)
-			else:
-				runoff.append(tile)
-
-		# Add the keepers to the pattern but discard extras
+		# Add the tiles to the pattern but discard extras
 		floor = []
 		keep_len = self.max_size - len(self.line)
-		self.line.extend(keep[:keep_len])
-		if len(keep) > self.max_size - len(self.line):
-			floor = keep[keep_len:]
-
-		return runoff, floor
+		self.line.extend(tiles[:keep_len])
+		if len(tiles) > self.max_size - len(self.line):
+			floor = tiles[keep_len:]
+		return floor
 
 
 	def full(self):

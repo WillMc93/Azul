@@ -16,7 +16,19 @@ class Board:
 
 	def add_tiles(self, tiles, colour, line):
 		# Add tiles to the pattern lines and return the runoff
-		runoff, floor = self.pattern_lines[line].add(tiles, colour)
+		if tiles['first']:
+			self.floor_line.add(tiles['first'].pop())
+
+		# Pullout the wrong coloured tiles
+		runoff = [tile for tile in tiles['tiles'] if tile.colour != colour]
+
+		# Put the right coloured tiles into the pattern lines
+		if self.pattern_lines[line].colour and self.pattern_lines[line].colour != colour:
+			raise Exception("Programming Error: Trying to add wrong colour to pattern line.")
+		tiles = [tile for tile in tiles['tiles'] if tile.colour == colour]
+		floor = self.pattern_lines[line].add(tiles)
+		
+		# Put extra tiles on the floor
 		self.floor_line.add(floor)
 		return runoff
 
