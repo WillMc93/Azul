@@ -29,7 +29,7 @@ class Board:
 				tiles = line.clear()
 				tile = tiles[0]
 				if len(tiles) > 1:
-					runoff += tiles[1:]
+					runoff.extend(tiles[1:])
 				self.score += self.wall.add(tile, row)
 		return runoff
 

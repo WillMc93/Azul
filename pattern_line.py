@@ -32,7 +32,7 @@ class PatternLine:
 		# Add the keepers to the pattern but discard extras
 		floor = []
 		keep_len = self.max_size - len(self.line)
-		self.line += keep[:keep_len]
+		self.line.extend(keep[:keep_len])
 		if len(keep) > self.max_size - len(self.line):
 			floor = keep[keep_len:]
 
@@ -40,6 +40,7 @@ class PatternLine:
 
 
 	def full(self):
+		# Checks if the pattern line is filled.
 		return len(self.line) == self.max_size
 
 
@@ -51,4 +52,3 @@ class PatternLine:
 		self.line = []
 		self.colour = None
 		return tiles
-
