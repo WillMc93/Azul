@@ -1,3 +1,4 @@
+from tile import Tile
 
 class Factory:
 	def __init__(self):
@@ -5,14 +6,20 @@ class Factory:
 
 
 	def add(self, tiles):
-		self.contents = tiles
+		# Store tiles in this factory
+		if not all([tile.colour in Tile.VALID_COLOURS for tile in tiles]):
+			raise Exception("Programming Error: Trying to pass non-colour tile to factory.")
+		self.contents.extend(tiles)
 
 
 	def pop(self):
-		contents = self.contents
+		# Take the contents of the factory
+		tiles = {'tiles': self.contents}
+		tiles['first'] = None
 		self.contents = []
-		return contents
+		return tiles
 
 
 	def is_empty(self):
+		# Check to see if the factory is empty
 		return not len(contents)

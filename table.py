@@ -6,12 +6,14 @@ class Table:
 
 
 	def __init_contents(self):
+		# Function for reinitializing the table contents 
 		contents = {colour: [] for colour in Tile.VALID_COLOURS}
 		contents = {'first': [Tile('first')]}
 		return contents
 
 
 	def add(self, tiles):
+		# Add tiles to the table
 		if tile.colour not in Tile.VALID_COLOURS:
 			raise Exception("Programming Error: Trying to add non-colour tile to Table.")
 
@@ -20,21 +22,24 @@ class Table:
 
 
 	def take(self, colour, count):
+		# Take tiles from the table
 		if colour not in Tile.VALID_COLOURS:
 			raise Exception("Programming Error: Trying to pass invalid colour to Table.take()")
 		if len(self.contents[colour]) < count:
 			raise Exception("Programming Error: Trying to take too many tiles from table "
 							f"(has {len(table.contents[colour])} {colour}s but {count} requested).")
 
-		contents = [self.contents['first'].pop() for _ in self.contents['first'] if self.contents['first']]
-		contents += [self.contents[colour].pop() for _ in range(count)]
-		return contents
+		tiles = {}
+		tiles['first'] = self.contents['first'].pop() if self.contents['first'] else None
+		tiles['tiles'] = [self.contents[colour].pop() for _ in range(count)]
+		return tiles
 
 
 	def reset(self):
+		# Reset the table to only contain the first tile returning the contents for the bag
 		if self.contents['first']:
 			# Make sure the first tile is gone.
 			self.contents['first'] = []
-		contents = [*self.contents.values()]
+		tiles = [*self.contents.values()]
 		self.contents = self.__init_contents()
-		return contents
+		return tiles
