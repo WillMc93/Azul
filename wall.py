@@ -28,8 +28,10 @@ class Wall:
 			col = col[0][0]
 		else:
 			raise Exception("Programming Error: np.where returned more than one index.")
+		
 		self.tiled[row][col] = tile
 		score = self.add_score(row, col)
+		
 		return score
 
 
