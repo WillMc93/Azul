@@ -4,6 +4,14 @@ class Table:
 	def __init__(self):
 		self.contents = self.__init_contents()
 
+	def __str__(self):
+		# Return the string representation of the table
+		# TODO: TEST because I have no idea if this is going to work like I want it to
+		output = ' '.join(self.contents['first']) if self.contents['first'] else ''
+		for colour in Tile.VALID_COLOURS:
+			output += ' '.join(self.contents[colour])
+		return output
+
 
 	def __init_contents(self):
 		# Function for reinitializing the table contents 

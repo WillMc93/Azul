@@ -4,6 +4,12 @@ class Factory:
 	def __init__(self):
 		self.contents = []
 
+	def __str__(self):
+		self.contents = sorted(self.contents)
+		output = ' '.join(self.contents)
+		output = output.strip()
+		return output
+
 
 	def add(self, tiles):
 		# Store tiles in this factory
