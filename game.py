@@ -14,7 +14,7 @@ class Game:
 		self.bag = [Tile(colour) * 20 for colour in Tile.VALID_COLOURS]
 		self.boards = [Board() for _ in range(players)]
 		self.factories = [Factory() for _ in range(FACTORIES[players])]
-		self.floor = Floor()
+		self.table = Table()
 
 
 	def fill_factories(self):
@@ -29,3 +29,13 @@ class Game:
 	def game_status(self, player):
 		# Make a numpy array of the current status of the game
 		pass
+
+	def move(self, board, board_line, source, colour, num=0):
+		pass
+
+	def main_loop(self, starting_player=0):
+		# Play the game
+		winner = None
+		while not winner:
+
+
