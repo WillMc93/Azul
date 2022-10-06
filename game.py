@@ -5,7 +5,7 @@ import numpy as np
 
 from board import Board
 from factory import Factory
-from floor import Floor
+from table import Table
 
 class Game:
 	FACTORIES = {2: 5, 3: 7, 4: 9}
@@ -14,11 +14,11 @@ class Game:
 	def __init__(self, players: list):
 		self.num_players = len(players)
 		self.players = players
-
 		self.bag = [Tile(colour) * 20 for colour in Tile.VALID_COLOURS]
 		self.boards = [Board() for _ in range(num_players)]
 		self.factories = [Factory() for _ in range(FACTORIES[num_players])]
 		self.table = Table()
+		self.parser = self.__init_parser()
 
 
 	def fill_factories(self):
@@ -34,26 +34,9 @@ class Game:
 		# Make a numpy array of the current status of the game
 		pass
 
+
 	def move(self, board, board_line, source, colour, num=0):
+
 		pass
-
-	def main_loop(self, starting_player=0):
-		# Play the game
-		winner = None
-		while not winner:
-
-			for idx, player in enumerate(players):
-				# Output the factory contents and table contents for this player
-				for idx, factory in enumerate(self.factories):
-					print(f"Factory {idx} has: {factory}")
-				print(f"Table has: {self.table}")
-
-				# Output the board state to standard error
-				# write_err(self.board_state())
-
-				move = input(f"Player {idx} enter move: ")
-
-
-if __name__ == '__main__':
 
 

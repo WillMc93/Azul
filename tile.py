@@ -22,7 +22,7 @@ class Tile:
 			return self.colour == other
 		return self.colour == other.colour
 
-	def __lt__(self, other)
+	def __lt__(self, other):
 		# Definte less_than for Tiles, which is used to sort Tiles by colour
 		return self.colour < other.colour
 
